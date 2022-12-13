@@ -15,14 +15,9 @@ app.use('/api/user',require('./routes/User'));
 app.use('/api/cart',require('./routes/Cart'));
 app.use('/api/placeorder',require('./routes/Order'));
 
-// sterp 3
-if(process.env.NODE_ENV === "production"){
-    app.use(express.static("client/build"));
-    const path = require('path');
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'client','build','index.html'));
-    })
-}
+app.get((req,res)=>{
+    res.send('hello');
+})
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)

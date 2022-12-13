@@ -15,7 +15,7 @@ app.use('/api/user',require('./routes/User'));
 app.use('/api/cart',require('./routes/Cart'));
 app.use('/api/placeorder',require('./routes/Order'));
 
-app.get((req,res)=>{
+app.get('/',(req,res)=>{
     res.send('hello');
 })
 

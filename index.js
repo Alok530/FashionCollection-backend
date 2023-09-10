@@ -3,10 +3,12 @@ const app = express();
 
 const port = process.env.PORT || 5000;
 
+// cors
 var cors = require('cors');      // it is nessecary to use when we are fetching data from another localhost on another localhost
 app.use(cors());   // use for fetching data from another port 
 
 const connectToMongo = require('./db/connection');
+
 
 app.use(express.json());
 

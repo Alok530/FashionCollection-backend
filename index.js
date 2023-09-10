@@ -5,13 +5,14 @@ const port = process.env.PORT || 5000;
 
 const connectToMongo = require("./db/connection");
 
-// var cors = require('cors');
-// app.use(cors());
+var cors = require('cors');
+app.use(cors());
 
-app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "*");
-  next();
-});
+app.UseCors(x => x
+    .AllowAnyMethod()
+    .AllowAnyHeader()
+    .SetIsOriginAllowed(origin => true) // allow any origin
+    .AllowCredentials()); // allow credentials
 
 app.use(express.json());
 

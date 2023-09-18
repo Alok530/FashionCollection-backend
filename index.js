@@ -1,24 +1,18 @@
 const express = require("express");
 const app = express();
+const cors = require('cors');
 
 const port = process.env.PORT || 5000;
 
 const connectToMongo = require("./db/connection");
 
-var cors = require('cors');
+
 app.use(
   cors({
     origin: ['https://fashioncollections.netlify.app/'],    
     credentials: true,
   })
 );
-
-
-app.UseCors(x => x
-    .AllowAnyMethod()
-    .AllowAnyHeader()
-    .SetIsOriginAllowed(origin => true) // allow any origin
-    .AllowCredentials()); // allow credentials
 
 app.use(express.json());
 

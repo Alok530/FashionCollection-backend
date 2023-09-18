@@ -6,6 +6,10 @@ const port = process.env.PORT || 5000;
 
 const connectToMongo = require("./db/connection");
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
 
 app.use(
   cors({
